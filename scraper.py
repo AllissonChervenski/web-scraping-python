@@ -3,25 +3,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from collections import defaultdict
-import os
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Definir uma função para executar o web scraping
 def web_scrape(url):
-    # Iniciar o driver do Chrome
-
-        # Obter o diretório do script
-    current_directory = os.path.dirname(os.path.realpath(__file__))
-    
-    # Caminho para o ChromeDriver
-    chrome_driver_path = os.path.join(current_directory, "chromedriver")
-    chrome_service = Service(chrome_driver_path)
-    
+        # Configurações do navegador
     options = Options()
-    options.add_argument("--headless")  # Para executar no modo headless
+    options.add_argument("--headless")  # Para rodar em modo headless
     options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")  # Útil para ambientes virtuais
+    options.add_argument("--disable-dev-shm-usage")
     
-    driver = webdriver.Chrome(service=chrome_service, options=options)
+    # Usar o WebDriver Manager para obter o ChromeDriver
+    service = Service(ChromeDriverManager().install())
+    
+    # Inicializar o navegador Chrome usando o serviço com WebDriver Manager
+    driver = webdriver.Chrome(service=service, options=options)
     
     try:
         # Acessar o URL especificado
