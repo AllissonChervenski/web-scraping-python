@@ -1,5 +1,15 @@
 apt-get update
 apt-get install -y libnss3 libxss1 libasound2 unzip
-wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/124.0.6367.60/chromedriver_linux64.zip"
-unzip /tmp/chromedriver.zip -d /root/.cache/selenium/chromedriver/
-chmod +x /root/.cache/selenium/chromedriver
+
+# Obter o diretório onde o script Python está localizado
+script_dir=$(dirname "$(realpath $0)")
+
+# Baixar o ChromeDriver
+wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
+
+# Descompactar para o diretório do script
+unzip /tmp/chromedriver.zip -d "$script_dir"
+
+# Tornar o ChromeDriver executável
+chmod +x "$script_dir/chromedriver"
+
