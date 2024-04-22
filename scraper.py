@@ -3,11 +3,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from collections import defaultdict
+import os
 
 # Definir uma função para executar o web scraping
 def web_scrape(url):
     # Iniciar o driver do Chrome
-    chrome_driver_path = "/root/.cache/selenium/chromedriver"  # Substitua pelo caminho correto
+
+        # Obter o diretório do script
+    current_directory = os.path.dirname(os.path.realpath(__file__))
+    
+    # Caminho para o ChromeDriver
+    chrome_driver_path = os.path.join(current_directory, "chromedriver")
     chrome_service = Service(chrome_driver_path)
     
     options = Options()
