@@ -4,6 +4,8 @@ from scraper import web_scrape  # Importar a função de web scraping
 # Iniciar a aplicação Flask
 app = Flask(__name__)
 
+app.debug = False
+
 # Criar um endpoint para web scraping
 @app.route('/scrape', methods=['GET'])
 def scrape():
