@@ -7,7 +7,7 @@ from collections import defaultdict
 # Definir uma função para executar o web scraping
 def web_scrape(url):
     # Iniciar o driver do Chrome
-    chrome_driver_path = "/root/.cache/selenium/chromedriver/chromedriver"  # Substitua pelo caminho correto
+    chrome_driver_path = "/root/.cache/selenium/124.0.6367.60/chromedriver"  # Substitua pelo caminho correto
     chrome_service = Service(chrome_driver_path)
     
     options = Options()
