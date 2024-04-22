@@ -1,3 +1,4 @@
 selenium==4.19.0
 Flask
 webdriver-manager
+uwsgi
