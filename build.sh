@@ -1,6 +1,13 @@
 apt-get update
 apt-get install -y libnss3 libxss1 libasound2 unzip
 
+# Adicionar repositório do Google Chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+# Atualizar pacotes e instalar Google Chrome
+sudo apt update
+sudo apt install google-chrome-stable
 # Obter o diretório onde o script Python está localizado
 script_dir=$(dirname "$(realpath $0)")
 
