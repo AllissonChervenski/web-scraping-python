@@ -13,3 +13,8 @@ unzip /tmp/chromedriver.zip -d "$script_dir"
 # Tornar o ChromeDriver executável
 chmod +x "$script_dir/chromedriver"
 
+echo "export PATH=\$PATH:$script_dir" >> ~/.bashrc
+
+# Recarregar o arquivo .bashrc para aplicar as mudanças
+source ~/.bashrc
+
