@@ -7,7 +7,9 @@ from collections import defaultdict
 # Definir uma função para executar o web scraping
 def web_scrape(url):
     # Iniciar o driver do Chrome
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # Executar em modo headless para servidores remotos
+    driver = webdriver.Chrome(executable_path='/root/.cache/selenium/chromedriver/chromedriver', options=options)
     
     try:
         # Acessar o URL especificado
