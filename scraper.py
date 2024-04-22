@@ -39,7 +39,7 @@ def web_scrape(url):
             else:
                 element_info = {
                     'tag_name': elem.tag_name,
-                    'text': elem.text.strip(),
+                    'text': elem.text,
                     'class_name': elem.get_attribute('class'),
                 }
             data.append(element_info)
