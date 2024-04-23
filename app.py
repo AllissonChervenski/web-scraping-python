@@ -14,10 +14,11 @@ def scrape():
     try:
         # Executar o web scraping e obter os dados
         data = web_scrape(url)
+        print(data)
         return jsonify(data)  # Retornar dados como JSON
     except Exception as e:
         # Lidar com erros e retornar resposta adequada
-        return jsonify({"error (teste)": str(e)}), 500  # Erro interno do servidor
+        return jsonify({"error": str(e)}), 500  # Erro interno do servidor
 
 # Iniciar o servidor Flask
 if __name__ == '__main__':
