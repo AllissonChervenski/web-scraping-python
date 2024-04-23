@@ -1,4 +1,5 @@
 apt-get update
+apt-get install -y wget
 apt-get install -y libnss3 libxss1 libasound2 unzip
 
 # Adicionar repositório do Google Chrome
