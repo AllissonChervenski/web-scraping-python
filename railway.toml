@@ -1,13 +1,8 @@
 # railway.toml
 
 [build]
-# Comandos para executar durante o build
 builder = "dockerfile"
 dockerfilepath = "./Dockerfile"
-
-#[start]
-# Comando para iniciar o aplicativo
-#command = "gunicorn -w 4 -b 0.0.0.0:${PORT} app:app"  # Exemplo para Flask com Gunicorn
 
 [variables]
 # Variáveis de ambiente

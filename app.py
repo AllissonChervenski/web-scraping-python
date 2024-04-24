@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Criar um endpoint para web scraping
 @app.route('/scrape', methods=['GET'])
 def scrape():
-    url = 'http://bianca.com'  # Obter o URL do parâmetro de consulta
+    url = request.args.get('url')  # Obter o URL do parâmetro de consulta
     if not url:
         return jsonify({"error": "URL is required"}), 400  # Erro se a URL não for fornecida
     
