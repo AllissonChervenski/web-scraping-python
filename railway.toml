@@ -3,7 +3,7 @@
 [build]
 # Comandos para executar durante o build
 builder = "dockerfile"
-dockerfilepath = "./dockerfile"
+dockerfilepath = "./Dockerfile"
 
 #[start]
 # Comando para iniciar o aplicativo
