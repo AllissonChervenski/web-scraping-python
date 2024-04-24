@@ -2,11 +2,13 @@
 
 [build]
 # Comandos para executar durante o build
-command = "./build.sh"  # Este arquivo pode incluir instalação de dependências, configuração de ambiente, etc.
+builder = "dockerfile"
+dockerfilepath = "./dockerfile"
 
-[start]
+#[start]
 # Comando para iniciar o aplicativo
-command = "gunicorn -w 4 -b 0.0.0.0:${PORT} app:app"  # Exemplo para Flask com Gunicorn
+command = docker run -d --name web-scraper app_scraper
+#command = "gunicorn -w 4 -b 0.0.0.0:${PORT} app:app"  # Exemplo para Flask com Gunicorn
 
 [variables]
 # Variáveis de ambiente
