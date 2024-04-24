@@ -1,5 +1,5 @@
 # Use Ubuntu como imagem base
-FROM ubuntu:latest
+FROM docker/dockerfile:dind 
 
 # Atualize e instale as dependências necessárias
 RUN apt-get update && \
