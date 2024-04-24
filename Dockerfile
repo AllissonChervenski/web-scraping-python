@@ -1,5 +1,5 @@
 # Use Ubuntu como imagem base
-FROM docker/dockerfile:dind 
+FROM ubuntu:latest
 
 # Atualize e instale as dependências necessárias
 RUN apt-get update && \
@@ -19,4 +19,4 @@ RUN python3 -m venv venv && \
 RUN venv/bin/pip install gunicorn
 
 # Comando para iniciar o Gunicorn
-CMD ["venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:${PORT}", "app:app"]
+RUN venv/bin/gunicorn -w 4 -b 0.0.0.0:${PORT} app:app
