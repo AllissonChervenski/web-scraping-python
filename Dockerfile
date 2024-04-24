@@ -3,7 +3,21 @@ FROM ubuntu:latest
 
 # Atualize e instale as dependências necessárias
 RUN apt-get update && \
-    apt-get install -y wget libnss3 libxss1 libasound2 unzip python3 python3-pip python3.10-venv  # Instalações em uma linha
+    apt-get install -y wget libnss3 libxss1 libxi6 libasound2 libgconf-2-4  libgl1-mesa-glx \
+    fonts-liberation  xdg-utils unzip python3 python3-pip python3.10-venv \
+    --no-install-recommends
+
+# Adicione o repositório do Google Chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
+
+    # Instale o Google Chrome
+RUN apt-get update && apt-get install -y google-chrome-stable \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
+
+# Defina um comando padrão (não obrigatório)
+CMD ["google-chrome", "--headless", "--no-sandbox", "--disable-gpu"]
 
 # Copie o código-fonte para o contêiner
 COPY . /app

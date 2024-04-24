@@ -12,6 +12,7 @@ def web_scrape(url):
     options.add_argument("--headless")  # Para rodar em modo headless
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
     
     # Usar o WebDriver Manager para obter o ChromeDriver
     service = Service(ChromeDriverManager().install())
