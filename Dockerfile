@@ -19,4 +19,4 @@ RUN python3 -m venv venv && \
 RUN venv/bin/pip install gunicorn
 
 # Comando para iniciar o Gunicorn
-CMD ["venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:8001", "app:app"]
+CMD ["venv/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:${PORT}", "app:app"]
