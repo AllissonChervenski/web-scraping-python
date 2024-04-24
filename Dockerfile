@@ -5,6 +5,7 @@ FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y wget libnss3 libxss1 libxi6 libasound2 libgconf-2-4  libgl1-mesa-glx \
     fonts-liberation  xdg-utils unzip python3 python3-pip python3.10-venv \
+    gnupg \
     --no-install-recommends
 
 # Adicione o repositório do Google Chrome
